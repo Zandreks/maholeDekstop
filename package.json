@@ -1,6 +1,6 @@
 {
   "name": "manhole",
-  "version": "3.1.2",
+  "version": "3.1.3",
   "description": "Manhole app electron",
   "author": "Maksim Severyanov <zandreks@gmail.com>",
   "private": true,

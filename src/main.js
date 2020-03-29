@@ -77,7 +77,7 @@ autoUpdater.on('update-available', (info) => {
 })
   
 autoUpdater.on('update-not-available', (info) => {
-    mainWindow.webContents.send('update_available')
+    
 })
   
 autoUpdater.on('error', (err) => {
