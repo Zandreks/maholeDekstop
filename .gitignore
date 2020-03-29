@@ -7,7 +7,7 @@
 
 # testing
 /coverage
-/out
+/dist
 /app
 /electron-builder.yml
 /package-lock.json
