@@ -1,0 +1,1 @@
+electron: node src/electron-wait-react

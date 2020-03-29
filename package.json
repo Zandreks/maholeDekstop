@@ -1,0 +1,56 @@
+{
+  "name": "manhole",
+  "version": "3.1.2",
+  "description": "Manhole app electron",
+  "author": "Maksim Severyanov <zandreks@gmail.com>",
+  "private": true,
+  "dependencies": {
+    "custom-env": "^2.0.1",
+    "electron-updater": "^4.2.5",
+    "eslint": "^6.6.0",
+    "eslint-config-react-app": "^5.1.0",
+    "eslint-loader": "3.0.2",
+    "eslint-plugin-flowtype": "3.13.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-react": "7.16.0",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "foreman": "^3.0.1",
+    "update-electron-app": "^1.5.0"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --win --dir",
+    "dist": "electron-builder",
+    "build": "electron-builder build --mac --win --publish never",
+    "deploy": "electron-builder build --mac --win --publish always",
+    "dev": "nf start -p 3000",
+    "release": "electron-builder"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.3",
+    "electron": "^8.1.1",
+    "electron-builder": "^22.4.1",
+    "prettier": "^1.19.1"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Zandreks/manholeElectrom"
+  }
+}
