@@ -28,7 +28,8 @@
       </div>
 
       <script>
-        const notification = document.getElementById('notification');
+    const { ipcRenderer } = require('electron');
+    const notification = document.getElementById('notification');
     const message = document.getElementById('message');
     const restartButton = document.getElementById('restart-button');
     ipcRenderer.on('update_available', () => {
