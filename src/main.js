@@ -69,7 +69,7 @@ app.on('activate', function () {
 
 })
 autoUpdater.on('checking-for-update', () => {
-    dispatch('Checking for update...')
+    mainWindow.webContents.send('checking-for-update')
 })
   
 autoUpdater.on('update-available', (info) => {
@@ -77,10 +77,14 @@ autoUpdater.on('update-available', (info) => {
 })
   
 autoUpdater.on('update-not-available', (info) => {
-    
+    console.log(info)
+    mainWindow.webContents.send('update-not-available')
+
 })
   
 autoUpdater.on('error', (err) => {
+    mainWindow.webContents.send('update_error')
+
     dispatch('Error in auto-updater. ' + err)
 })
   
