@@ -19,6 +19,7 @@
   
       <div id="notification" class="hidden">
           <p id="message"></p>
+          <a href="https://github.com/Zandreks/maholeDekstop/releases">Ссылка на новые версии </a>
           <button id="close-button" onClick="closeNotification()">
             Закрыть
           </button>
@@ -34,12 +35,12 @@
       const restartButton = document.getElementById('restart-button');
       ipcRenderer.on('update_available', () => {
         ipcRenderer.removeAllListeners('update_available');
-        message.innerText = 'Новая версия приложение. Загрузка в фоне... ';
+        message.innerText = 'Новая версия приложение. Загрузка в фоне...  ';
         notification.classList.remove('hidden');
       });
       ipcRenderer.on('update_error', () => {
         ipcRenderer.removeAllListeners('update_error');
-        message.innerText = 'Ошибка при Обновление';
+        message.innerText = 'Ошибка при Обновление пожалуйста попробуйте обновить вручную';
         notification.classList.remove('hidden');
       });
       ipcRenderer.on('checking-for-update', () => {
