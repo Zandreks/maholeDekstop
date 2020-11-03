@@ -68,30 +68,44 @@ app.on('activate', function () {
     }
 
 })
-autoUpdater.on('checking-for-update', () => {
-    mainWindow.webContents.send('checking-for-update')
+autoUpdater.autoDownload= false
+autoUpdater.checkForUpdates().then(res=>{
+    console.log(res)
+}).catch(err=>{
+    console.log(err)
 })
-  
-autoUpdater.on('update-available', (info) => {
-    mainWindow.webContents.send('update_available')
-})
-  
-autoUpdater.on('update-not-available', (info) => {
-    console.log(info)
-    mainWindow.webContents.send('update-not-available')
-
-})
-  
-autoUpdater.on('error', (err) => {
-    mainWindow.webContents.send('update_error')
-
-    dispatch('Error in auto-updater. ' + err)
-})
-  
-
-  
+// autoUpdater.on('checking-for-update', () => {
+//     mainWindow.webContents.send('checking-for-update')
+// })
+//
+// autoUpdater.on('update-available', (info) => {
+//     mainWindow.webContents.send('update_available')
+// })
+//
+// autoUpdater.on('update-not-available', (info) => {
+//     console.log(info)
+//     mainWindow.webContents.send('update-not-available')
+//
+// })
+//
+// autoUpdater.on('error', (err) => {
+//     mainWindow.webContents.send('update_error')
+//
+//     dispatch('Error in auto-updater. ' + err)
+// })
+//
+//
+//
 autoUpdater.on('update-downloaded', (info) => {
     mainWindow.webContents.send('update_downloaded')
+})
+ipcMain.on('update_app', () => {
+    autoUpdater.downloadUpdate().then(res=>{
+        console.log(res)
+        mainWindow.webContents.send('update_available')
+    }).catch(err=>{
+        console.log(err)
+    })
 })
 ipcMain.on('restart_app', () => {
     autoUpdater.quitAndInstall()
