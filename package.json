@@ -2,7 +2,11 @@
   "name": "manhole",
   "version": "3.3.1",
   "description": "Manhole app electron",
-  "author": "Maksim Severyanov <zandreks@gmail.com>",
+  "license": "MIT",
+  "author": {
+    "name": "Maksim Severyanov",
+    "email": "zandreks@gmail.com"
+  },
   "private": true,
   "dependencies": {
     "custom-env": "^2.0.1",
@@ -49,8 +53,28 @@
     "electron-builder": "^22.4.1",
     "prettier": "^1.19.1"
   },
+  "build": {
+    "appId": "kz.winext.manhole",
+    "productName": "Winext Manhole",
+    "copyright": "Copyright © year Winext",
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb",
+        "snap",
+        "tar.gz"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "license": "./license.txt"
+    }
+  },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/Zandreks/maholeDekstop"
+    "type": "git",
+    "url": "https://github.com/Zandreks/maholeDekstop"
   }
 }
