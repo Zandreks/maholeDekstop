@@ -27,7 +27,7 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --win --dir",
-    "push": "electron-builder --publish always",
+    "push": "electron-builder build --publish always",
     "build": "electron-builder build --mac --win --publish never",
     "mac": "electron-builder build --mac  --publish always",
     "dev": "nf start -p 3000",

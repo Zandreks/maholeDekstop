@@ -70,7 +70,9 @@ app.on('activate', function () {
 })
 autoUpdater.autoDownload= false
 autoUpdater.checkForUpdates().then(res=>{
-    console.log(res)
+    if (res.updateInfo.version > app.getVersion()){
+        mainWindow.webContents.send('update_available')
+    }
 }).catch(err=>{
     console.log(err)
 })
@@ -100,9 +102,8 @@ autoUpdater.on('update-downloaded', (info) => {
     mainWindow.webContents.send('update_downloaded')
 })
 ipcMain.on('update_app', () => {
-    autoUpdater.downloadUpdate().then(res=>{
+    autoUpdater.autoDownload().then(res=>{
         console.log(res)
-        mainWindow.webContents.send('update_available')
     }).catch(err=>{
         console.log(err)
     })
