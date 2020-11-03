@@ -1,6 +1,6 @@
 {
   "name": "manhole",
-  "version": "3.3.2",
+  "version": "3.3.3",
   "description": "Manhole app electron",
   "license": "MIT",
   "homepage": "https://github.com/Zandreks/maholeDekstop",
@@ -29,7 +29,7 @@
     "pack": "electron-builder --win --dir",
     "push": "electron-builder build --publish always",
     "build": "electron-builder build --mac --win --publish never",
-    "mac": "electron-builder build --mac  --publish always",
+    "mac": "electron-builder build --mac --win --publish always",
     "dev": "nf start -p 3000",
     "win": "electron-builder"
   },
