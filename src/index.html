@@ -29,44 +29,44 @@
           </button>
         </div>
 
-        <script>
-      const { ipcRenderer } = require('electron');
-      const notification = document.getElementById('notification');
-      const message = document.getElementById('message');
-      const restartButton = document.getElementById('restart-button');
-      ipcRenderer.on('update_available', () => {
+<script>
+    const { ipcRenderer } = require('electron');
+    const notification = document.getElementById('notification');
+    const message = document.getElementById('message');
+    const restartButton = document.getElementById('restart-button');
+    ipcRenderer.on('update_available', () => {
         ipcRenderer.removeAllListeners('update_available');
         message.innerText = 'Новая версия приложение. Загрузка в фоне...  ';
         notification.classList.remove('hidden');
-      });
-      ipcRenderer.on('update_error', () => {
+    });
+    ipcRenderer.on('update_error', () => {
         ipcRenderer.removeAllListeners('update_error');
-        message.innerText = 'Ошибка при Обновление пожалуйста попробуйте обновить вручную';
+        message.innerText = 'Ошибка при Обновление приложение пожалуйста попробуйте обновить вручную';
         notification.classList.remove('hidden');
-      });
-      ipcRenderer.on('checking-for-update', () => {
+    });
+    ipcRenderer.on('checking-for-update', () => {
         ipcRenderer.removeAllListeners('checking-for-update');
-        message.innerText = 'Проверка новой версии Обновлениеё';
+        message.innerText = 'Проверка новой версии приложение';
         notification.classList.remove('hidden');
-      });
-      ipcRenderer.on('update-not-available', () => {
+    });
+    ipcRenderer.on('update-not-available', () => {
         ipcRenderer.removeAllListeners('update-not-available');
-        message.innerText = 'У вас самая новая версия обновлений';
+        message.innerText = 'У вас самая новая версия приложение';
         notification.classList.remove('hidden');
-      });
-      ipcRenderer.on('update_downloaded', () => {
+    });
+    ipcRenderer.on('update_downloaded', () => {
         ipcRenderer.removeAllListeners('update_downloaded');
-        message.innerText = 'Обновление Скачано. Оно будет установлен при перезагрузке. Перезагрузить сейчас?';
+        message.innerText = 'Приложение Скачано. Оно будет установлено при перезагрузке. Перезагрузить сейчас?';
         restartButton.classList.remove('hidden');
         notification.classList.remove('hidden');
-      });
-      function closeNotification() {
+    });
+    function closeNotification() {
         notification.classList.add('hidden');
-      }
+    }
 
-      function restartApp() {
+    function restartApp() {
         ipcRenderer.send('restart_app');
-      }
-      </script>
+    }
+</script>
 
   </body></html>

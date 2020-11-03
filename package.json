@@ -3,8 +3,9 @@
   "version": "3.3.1",
   "description": "Manhole app electron",
   "license": "MIT",
+  "homepage": "https://github.com/Zandreks/maholeDekstop",
   "author": {
-    "name": "Maksim Severyanov",
+    "name": "Maxim Severyanov",
     "email": "zandreks@gmail.com"
   },
   "private": true,
@@ -26,11 +27,11 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --win --dir",
-    "dist": "electron-builder",
+    "push": "electron-builder --publish always",
     "build": "electron-builder build --mac --win --publish never",
-    "deploy": "electron-builder build --mac --win --publish always",
+    "mac": "electron-builder build --mac  --publish always",
     "dev": "nf start -p 3000",
-    "release": "electron-builder"
+    "win": "electron-builder"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -53,10 +54,11 @@
     "electron-builder": "^22.4.1",
     "prettier": "^1.19.1"
   },
+
   "build": {
     "appId": "kz.winext.manhole",
     "productName": "Winext Manhole",
-    "copyright": "Copyright © year Winext",
+    "copyright": "Copyright © year ${author}",
     "linux": {
       "target": [
         "AppImage",
@@ -70,7 +72,9 @@
       "perMachine": true,
       "allowElevation": true,
       "allowToChangeInstallationDirectory": true,
-      "license": "./license.txt"
+      "license": "./license_ru.rtf",
+      "uninstallDisplayName": "${productName} ${version}",
+      "createDesktopShortcut":"always"
     }
   },
   "repository": {
